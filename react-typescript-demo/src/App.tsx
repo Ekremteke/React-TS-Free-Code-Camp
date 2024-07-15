@@ -4,14 +4,18 @@ import { FC, useEffect, useState } from 'react';
 interface AppProps {
   title: string;
 }
-interface Users {
-  name: {
-    first: string;
-    last: string;
-  };
-  login: {
-    uuid: string;
-  };
+export interface Name {
+  first: string;
+  last: string;
+}
+
+export interface Login {
+  uuid: string;
+}
+
+export interface Users {
+  name: Name;
+  login: Login;
   email: string;
 }
 
@@ -45,7 +49,6 @@ const App: FC<AppProps> = ({ title }) => {
               <div>Email: {email}</div>
               <hr />
             </li>
-
           )
         })}
       </ul>
