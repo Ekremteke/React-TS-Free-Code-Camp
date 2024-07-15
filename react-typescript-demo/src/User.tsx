@@ -16,7 +16,6 @@ const User: FC<UserProps> = ({ name, email }) => {
                 Email: {email}
             </div>
             <hr />
-
         </li>
     );
 }
