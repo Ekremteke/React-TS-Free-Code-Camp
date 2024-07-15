@@ -1,23 +1,9 @@
 import axios from 'axios';
 import { FC, useEffect, useState } from 'react';
+import User from './User';
+import { AppProps, Users } from './App.types';
 
-interface AppProps {
-  title: string;
-}
-export interface Name {
-  first: string;
-  last: string;
-}
 
-export interface Login {
-  uuid: string;
-}
-
-export interface Users {
-  name: Name;
-  login: Login;
-  email: string;
-}
 
 const App: FC<AppProps> = ({ title }) => {
   const [users, setUsers] = useState<Users[]>([]);
@@ -41,15 +27,7 @@ const App: FC<AppProps> = ({ title }) => {
       <h1>{title}</h1>
       <ul>
         {users.map(({ login, name, email }) => {
-          return (
-            <li key={login.uuid}>
-              <div>
-                Name: {name.first} {name.last}
-              </div>
-              <div>Email: {email}</div>
-              <hr />
-            </li>
-          )
+          return <User key={login.uuid} name={name} email={email} />;
         })}
       </ul>
     </div>);
